@@ -39,10 +39,21 @@ $show_complete_tasks = rand(0, 1);
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
 
+                <?php $projects [
+                    "Входящие", "Учеба", "Работа", "Домашние дела", "Авто"
+                ];
+                ?>
                 <nav class="main-navigation">
+                <?php
+                    $index = 0;
+                    $num = count($projects);
+                    while ($index < $num): 
+                ?>
                     <ul class="main-navigation__list">
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Название проекта</a>
+                            <a class="main-navigation__list-item-link" href="#"><?=$projects[$index];?></a>
+                            <?php $index++; ?>
+                    <?php endwhile; ?>
                             <span class="main-navigation__list-item-count">0</span>
                         </li>
                     </ul>
@@ -77,6 +88,45 @@ $show_complete_tasks = rand(0, 1);
                     </label>
                 </div>
 
+                <?php $tasks = [
+                    [
+                        'task' => 'Собеседование в IT компании',
+                        'date' => '01.12.2019',
+                        'item' => 'Работа',
+                        'check' => false 
+                    ],
+                    [
+                        'task' => 'Выполнить тестовое задание',
+                        'date' => '25.12.2019',
+                        'item' => 'Работа',
+                        'check' => false  
+                    ],
+                    [
+                        'task' => 'Сделать задание первого раздела',
+                        'date' => '21.12.2019',
+                        'item' => 'Учеба',
+                        'check' => true      
+                    ],
+                    [
+                        'task' => 'Встреча с другом',
+                        'date' => '22.12.2019',
+                        'item' => 'Входящие',
+                        'check' => false  
+                    ],
+                    [
+                        'task' => 'Купить корм для кота',
+                        'date' => null,
+                        'item' => 'Домашние делае',
+                        'check' => false
+                    ],
+                    [
+                        'task' => 'Заказать пиццу',
+                        'date' => null,
+                        'item' => 'Домашние делае',
+                        'check' => false
+                    ]
+                    ];
+                 ?>
                 <table class="tasks">
                     <tr class="tasks__item task">
                         <td class="task__select">
