@@ -125,9 +125,13 @@ $show_complete_tasks = rand(0, 1);
                         'check' => false
                     ]
                     ];
+
+                    $index = 0;
+                    $num = count($tasks);
                  ?>
                 <table class="tasks">
                     <tr class="tasks__item task">
+                    <?php while ($index < $num): ?>
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
@@ -140,6 +144,8 @@ $show_complete_tasks = rand(0, 1);
                         </td>
 
                         <td class="task__date"></td>
+                        <?php $index++; ?>
+                    <?php endwhile; ?>
                     </tr>
                     <?php if ($show_complete_tasks === 1): ?>
                         <tr class="tasks__item task task--completed">
