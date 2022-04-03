@@ -1,5 +1,44 @@
 <?php
 $show_complete_tasks = rand(0, 1);
+$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+$tasks = [
+    [
+        'task' => 'Собеседование в IT компании',
+        'date' => '01.12.2019',
+        'item' => 'Работа',
+        'check' => false 
+    ],
+    [
+        'task' => 'Выполнить тестовое задание',
+        'date' => '25.12.2019',
+        'item' => 'Работа',
+        'check' => false  
+    ],
+    [
+        'task' => 'Сделать задание первого раздела',
+        'date' => '21.12.2019',
+        'item' => 'Учеба',
+        'check' => true      
+    ],
+    [
+        'task' => 'Встреча с другом',
+        'date' => '22.12.2019',
+        'item' => 'Входящие',
+        'check' => false  
+    ],
+    [
+        'task' => 'Купить корм для кота',
+        'date' => null,
+        'item' => 'Домашние делае',
+        'check' => false
+    ],
+    [
+        'task' => 'Заказать пиццу',
+        'date' => null,
+        'item' => 'Домашние делае',
+        'check' => false
+    ]
+    ];;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -39,23 +78,16 @@ $show_complete_tasks = rand(0, 1);
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
 
-                <?php $projects [
-                    "Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
-                
-                    $index = 0;
-                    $num = count($projects);
-                ?>
                 <nav class="main-navigation">
                     
-                    <?php while ($index < $num): ?>
                     <ul class="main-navigation__list">
+                        <?php foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#"><?=$projects[$index];?></a>
+                            <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
                             <span class="main-navigation__list-item-count">0</span>
                         </li>
+                        <?php endforeach; ?>
                     </ul>
-                    <?php $index++; ?>
-                    <?php endwhile; ?>
                 </nav>
 
                 <a class="button button--transparent button--plus content__side-button"
@@ -87,52 +119,12 @@ $show_complete_tasks = rand(0, 1);
                     </label>
                 </div>
 
-                <?php $tasks = [
-                    [
-                        'task' => 'Собеседование в IT компании',
-                        'date' => '01.12.2019',
-                        'item' => 'Работа',
-                        'check' => false 
-                    ],
-                    [
-                        'task' => 'Выполнить тестовое задание',
-                        'date' => '25.12.2019',
-                        'item' => 'Работа',
-                        'check' => false  
-                    ],
-                    [
-                        'task' => 'Сделать задание первого раздела',
-                        'date' => '21.12.2019',
-                        'item' => 'Учеба',
-                        'check' => true      
-                    ],
-                    [
-                        'task' => 'Встреча с другом',
-                        'date' => '22.12.2019',
-                        'item' => 'Входящие',
-                        'check' => false  
-                    ],
-                    [
-                        'task' => 'Купить корм для кота',
-                        'date' => null,
-                        'item' => 'Домашние делае',
-                        'check' => false
-                    ],
-                    [
-                        'task' => 'Заказать пиццу',
-                        'date' => null,
-                        'item' => 'Домашние делае',
-                        'check' => false
-                    ]
-                    ];
-
-                    $index = 0;
-                    $num = count($tasks);
-                 ?>
                 <table class="tasks">
+                    <?php foreach ($tasts as $task): ?>
                     <tr class="tasks__item task">
-                    <?php while ($index < $num): ?>
+                    
                         <td class="task__select">
+                            <?= $task['task'] ?>
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
                                 <span class="checkbox__text">Сделать главную страницу Дела в порядке</span>
@@ -144,8 +136,6 @@ $show_complete_tasks = rand(0, 1);
                         </td>
 
                         <td class="task__date"></td>
-                        <?php $index++; ?>
-                    <?php endwhile; ?>
                     </tr>
                     <?php if ($show_complete_tasks === 1): ?>
                         <tr class="tasks__item task task--completed">
@@ -161,7 +151,7 @@ $show_complete_tasks = rand(0, 1);
                             </td>
                         </tr>
                     <?php endif; ?>
-                   
+                    <?php endforeach; ?>
                 </table>
             </main>
         </div>
