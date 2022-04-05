@@ -120,7 +120,7 @@ $tasks = [
                 </div>
 
                 <table class="tasks">
-                    <?php foreach ($tasts as $task): ?>
+                    <?php foreach ($tasks as $task): ?>
                     <tr class="tasks__item task">
                     
                         <td class="task__select">
