@@ -131,7 +131,7 @@ $tasks = [
                         </td>
 
                         <td class="task__file">
-                            <a class="download-link" href="#">Home.psd</a>
+                            <a class="download-link" href="#"></a>
                         </td>
 
                         <td class="task__date"><?= $task['date'] ?></td>
@@ -141,7 +141,7 @@ $tasks = [
                             <td class="task__select">
                                 <label class="checkbox task__checkbox">
                                     <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                                    <span class="checkbox__text">Записаться на интенсив "Базовый PHP"</span>
+                                    <span class="checkbox__text"><?= $task['check'] ?></span>
                                 </label>
                             </td>
                             <td class="task__date">10.10.2019</td>
