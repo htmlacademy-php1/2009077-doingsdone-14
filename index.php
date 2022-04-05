@@ -124,10 +124,9 @@ $tasks = [
                     <tr class="tasks__item task">
                     
                         <td class="task__select">
-                            <?= $task['task'] ?>
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text">Сделать главную страницу Дела в порядке</span>
+                                <span class="checkbox__text"><?= $task['task'] ?></span>
                             </label>
                         </td>
 
