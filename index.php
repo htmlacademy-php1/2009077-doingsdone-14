@@ -134,7 +134,7 @@ $tasks = [
                             <a class="download-link" href="#">Home.psd</a>
                         </td>
 
-                        <td class="task__date"></td>
+                        <td class="task__date"><?= $task['date'] ?></td>
                     </tr>
                     <?php if ($show_complete_tasks === 1): ?>
                         <tr class="tasks__item task task--completed">
