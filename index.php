@@ -3,40 +3,40 @@ $show_complete_tasks = rand(0, 1);
 $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
 $tasks = [
     [
-        'task' => 'Собеседование в IT компании',
+        'name' => 'Собеседование в IT компании',
         'date' => '01.12.2019',
-        'item' => 'Работа',
-        'check' => false 
+        'project' => 'Работа',
+        'done' => false 
     ],
     [
-        'task' => 'Выполнить тестовое задание',
+        'name' => 'Выполнить тестовое задание',
         'date' => '25.12.2019',
-        'item' => 'Работа',
-        'check' => false  
+        'project' => 'Работа',
+        'done' => false  
     ],
     [
-        'task' => 'Сделать задание первого раздела',
+        'name' => 'Сделать задание первого раздела',
         'date' => '21.12.2019',
-        'item' => 'Учеба',
-        'check' => true      
+        'project' => 'Учеба',
+        'done' => true      
     ],
     [
-        'task' => 'Встреча с другом',
+        'name' => 'Встреча с другом',
         'date' => '22.12.2019',
-        'item' => 'Входящие',
-        'check' => false  
+        'project' => 'Входящие',
+        'done' => false  
     ],
     [
-        'task' => 'Купить корм для кота',
+        'name' => 'Купить корм для кота',
         'date' => null,
-        'item' => 'Домашние делае',
-        'check' => false
+        'project' => 'Домашние делае',
+        'done' => false
     ],
     [
-        'task' => 'Заказать пиццу',
+        'name' => 'Заказать пиццу',
         'date' => null,
-        'item' => 'Домашние делае',
-        'check' => false
+        'project' => 'Домашние делае',
+        'done' => false
     ]
     ];;
 ?>
@@ -121,13 +121,13 @@ $tasks = [
 
                 <table class="tasks">
                     <?php foreach ($tasks as $task): ?>
-                        <?php if ($task['check'] === false || $show_complete_tasks === 1): ?> 
+                        <?php if ($task['done'] === false || $show_complete_tasks === 1): ?> 
                     <tr class="tasks__item task">
                     
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text"><?= $task['task'] ?></span>
+                                <span class="checkbox__text"><?= $task['name'] ?></span>
                             </label>
                         </td>
 
