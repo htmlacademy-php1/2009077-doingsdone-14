@@ -137,18 +137,6 @@ $tasks = [
 
                         <td class="task__date"><?= $task['date'] ?></td>
                     </tr>
-                        <tr class="tasks__item task task--completed">
-                            <td class="task__select">
-                                <label class="checkbox task__checkbox">
-                                    <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                                    <span class="checkbox__text"><?= $task['task'] ?></span>
-                                </label>
-                            </td>
-                            <td class="task__date">10.10.2019</td>
-
-                            <td class="task__controls">
-                            </td>
-                        </tr>
                     <?php endif; ?>
                     <?php endforeach; ?>
                 </table>
