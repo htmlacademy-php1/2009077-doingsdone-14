@@ -40,7 +40,7 @@ $tasks = [
     ]
     ];
 count($tasks){
-        return $task['project'];
+        echo $task['project'];
     };
 
 
