@@ -41,8 +41,8 @@ $tasks = [
     ];
 function count_ptojects($tasks, $projects){
         foreach($tasks as $task);
-        count($task['project']);
-        return count($task['project']);
+        count($projects);
+        return count($projects);
     }
 ?>
 <!DOCTYPE html>
