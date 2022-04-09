@@ -39,7 +39,7 @@ $tasks = [
         'done' => false
     ]
     ];
- echo count($task['project']);
+ echo count($tasks);
 
 
 ?>
@@ -87,7 +87,7 @@ $tasks = [
                         <?php foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
-                            <span class="main-navigation__list-item-count"><?php echo count($task['project']) ?></span>
+                            <span class="main-navigation__list-item-count"><?php echo count($tasks) ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
