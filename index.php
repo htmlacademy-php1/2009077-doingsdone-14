@@ -39,9 +39,8 @@ $tasks = [
         'done' => false
     ]
     ];
-function count_ptojects($tasks, $projects){
-        count($task['project']);
-        return count($task['project']);
+function count_ptojects($tasks){
+        return $task['project']);
     }
 ?>
 <!DOCTYPE html>
@@ -88,7 +87,7 @@ function count_ptojects($tasks, $projects){
                         <?php foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
-                            <span class="main-navigation__list-item-count"><?php count_ptojects($tasks, $projects) ?></span>
+                            <span class="main-navigation__list-item-count"><?php count_ptojects($tasks) ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
