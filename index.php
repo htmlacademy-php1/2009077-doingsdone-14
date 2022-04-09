@@ -40,8 +40,8 @@ $tasks = [
     ]
     ];
 function count_ptojects($tasks){
-        return $task['project']);
-    }
+        return $task['project'];
+    };
 ?>
 <!DOCTYPE html>
 <html lang="ru">
