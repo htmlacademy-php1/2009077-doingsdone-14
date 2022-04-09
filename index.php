@@ -29,20 +29,19 @@ $tasks = [
     [
         'name' => 'Купить корм для кота',
         'date' => null,
-        'project' => 'Домашние делае',
+        'project' => 'Домашние дела',
         'done' => false
     ],
     [
         'name' => 'Заказать пиццу',
         'date' => null,
-        'project' => 'Домашние делае',
+        'project' => 'Домашние дела',
         'done' => false
     ]
     ];
-function count_ptojects($tasks, 'project'){
-        foreach($tasks as $task);
-        count('project');
-        return count('project');
+function count_ptojects($tasks, $task['project']){
+        count($task['project']);
+        return count($task['project']);
     }
 ?>
 <!DOCTYPE html>
