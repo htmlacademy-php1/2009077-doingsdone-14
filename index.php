@@ -43,9 +43,9 @@ $tasks = [
      $count = 0;
      foreach($tasks as $task);
      if ($projects === $task['project']){
-         return $count + 1
+         return $count + 1;
      };
- }
+ };
 
 
 ?>
