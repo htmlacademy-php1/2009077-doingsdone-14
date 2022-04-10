@@ -93,7 +93,7 @@ function project_count($tasks, $project){
                         <?php foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?= $project; ?></a>
-                            <span class="main-navigation__list-item-count"><?php  project_count($tasks, $project); ?></span>
+                            <span class="main-navigation__list-item-count"><?=  project_count($tasks, $project); ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
