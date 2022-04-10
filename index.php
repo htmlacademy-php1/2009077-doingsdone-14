@@ -46,7 +46,7 @@ function project_count($tasks, $project){
             $count = $count + 1;  
             }  
         }
-        return $count
+        return $count;
     }
 ?>
 <!DOCTYPE html>
