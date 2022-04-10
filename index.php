@@ -39,15 +39,15 @@ $tasks = [
         'done' => false
     ]
     ];
- function project_count($tasks, $project){
-     $count = 0;
-     foreach($tasks as $task);
-     if ($project === $task['project']){
-         return $count + 1;
-     };
- };
-
-
+function project_count($tasks, $project){  
+    $count = 0;    
+    foreach($tasks as $task){    
+        if ($project === $task['project']){ 
+            $count = $count + 1;  
+            }  
+        }
+        return $count
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">
