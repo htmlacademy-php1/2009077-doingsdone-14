@@ -1,6 +1,6 @@
 <?php
-$page_content = include_template('main.php', ['projects' => $projects], ['tasks' => $tasks]);
-$layout_content = include_template('layout.php', [
+$page_content = function include_template('main.php', ['projects' => $projects], ['tasks' => $tasks]);
+$layout_content = function include_template('layout.php', [
 	'content' => $page_content,
 	'title' => 'Дела в порядке'
     ]);
