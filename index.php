@@ -1,11 +1,4 @@
 <?php
-$page_content = function include_template('main.php', ['projects' => $projects], ['tasks' => $tasks]);
-$layout_content = function include_template('layout.php', [
-	'content' => $page_content,
-	'title' => 'Дела в порядке'
-    ]);
-print($layout_content);
-
 $show_complete_tasks = rand(0, 1);
 $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
 $tasks = [
@@ -56,5 +49,13 @@ function project_count($tasks, $project){
         }
         return $count;
     }
+$page_content = function include_template('main.php', [
+    'projects' => $projects], 
+    ['tasks' => $tasks]);
+$layout_content = function include_template('layout.php', [
+	'content' => $page_content,
+	'title' => 'Дела в порядке'
+    ]);
+print($layout_content);
 
 ?>
