@@ -3,7 +3,7 @@ require_once('helpers.php');
 
 $show_complete_tasks = rand(0, 1);
 
-$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"], 
+$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; 
 $tasks = [
     [
         'name' => 'Собеседование в IT компании',
@@ -41,7 +41,7 @@ $tasks = [
         'project' => 'Домашние дела',
         'done' => false
     ]
-]
+];
 
 function project_count($tasks, $project){  
     $count = 0;    
