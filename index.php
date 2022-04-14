@@ -1,8 +1,6 @@
 <?php
 $show_complete_tasks = rand(0, 1);
 
-
-
 function project_count($tasks, $project){  
     $count = 0;    
     foreach($tasks as $task){    
@@ -12,7 +10,9 @@ function project_count($tasks, $project){
         }
         return $count;
     }
-$page_content = function include_template('main.php',
+    
+function include_template(
+    'templates/main.php',
     $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"], 
     $tasks = [
         [
@@ -53,11 +53,25 @@ $page_content = function include_template('main.php',
         ]
         ]
 ) {
-    $page_content = 'templates/main.php'
+    $page_content = 'templates/main.php';
+    $result = 'page_content'
+
+    if (!is_readable($page_content)) {
+        return $result;
+    }
+
+    ob_start();
+    extract($projects, $tasks);
+    require $page_content;
+
+    $result = ob_get_clean();
+
+    return $result;
 }
-$layout_content = function include_template('layout.php', [
+function include_template('templates/layout.php', [
 	'content' => $page_content,
-	'title' => 'Дела в порядке'
+	'title' => 'Дела в порядке',
+    'user-menu__data' => 'Константин'
     ]);
 print($layout_content);
 
