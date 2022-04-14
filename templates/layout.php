@@ -33,7 +33,7 @@
         </header>
 
         <div class="content">
-            <?= include_template('main.php', ['project' => $projects], ['task' => $tasks]); ?>
+            <?=$content; ?>
         </div>
     </div>
 </div>
