@@ -53,7 +53,10 @@ function project_count($tasks, $project){
         return $count;
     }
 
-$page_content = include_template('main.php', ['projects' => $projects], ['tasks' => $tasks]);
+$page_content = include_template('main.php', [
+    'projects' => $projects,
+    'tasks' => $tasks
+]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
 	'name' => 'Константин',
