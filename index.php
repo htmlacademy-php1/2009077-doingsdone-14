@@ -59,7 +59,7 @@ $page_content = include_template('main.php', [
 ]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
-	'name' => 'Константин',
+	'username' => 'Константин',
 	'title' => 'Дела в порядке'
 ]);
 
