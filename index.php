@@ -5,8 +5,6 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
-$show_complete_tasks = rand(0, 1);
-
 $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; 
 $tasks = [
     [
@@ -58,6 +56,7 @@ function project_count($tasks, $project){
     }
 
 $page_content = include_template('main.php', [
+    $show_complete_tasks = rand(0, 1),
     'projects' => $projects,
     'tasks' => $tasks
 ]);
