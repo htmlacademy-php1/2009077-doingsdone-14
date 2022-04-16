@@ -56,7 +56,7 @@ function project_count($tasks, $project){
 $page_content = include_template('main.php', ['projects' => $projects], ['tasks' => $tasks]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
-	'name' => 'name'
+	'name' => 'name',
 	'title' => 'Дела в порядке'
 ]);
 
