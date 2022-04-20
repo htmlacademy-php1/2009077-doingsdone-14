@@ -13,8 +13,8 @@ function is_soon_expire($start_date, $end_date){
     $start_time = strtotime($start_date);
     $end_time = strtotime($end_date);
     $ts_diff = $end_time - $start_date;
-    $days_until_end = floor ($ts_diff / $secs_in_day)
-    return $days_until_end
+    $days_until_end = floor ($ts_diff / $secs_in_day);
+    return $days_until_end;
 }
 
 $show_complete_tasks = rand(0, 1);
