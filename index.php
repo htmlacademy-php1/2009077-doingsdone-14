@@ -5,6 +5,12 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
+$ts = time();
+$secs_in_day = 86400;
+$date = strtotime('d.m.Y');
+$ts_diff = $date - $ts;
+$days_until_end = floor($ts_diff / $secs_in_day);
+
 $show_complete_tasks = rand(0, 1);
 
 $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; 

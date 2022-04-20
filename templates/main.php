@@ -42,25 +42,25 @@
                     </label>
                 </div>
 
-                <table class="tasks">
+                <table class="tasks" <?= $days_until_end <= 86400 === true ? 'task--important' : '' ?>>
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['done'] === false || $show_complete_tasks === 1): ?> 
-                    <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?>">
+                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?>">
                     
-                        <td class="task__select">
-                            <label class="checkbox task__checkbox">
-                            <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1" <?= $task['done'] === true ? 'checked' : '' ?>>
-                                <span class="checkbox__text"><?= htmlspecialchars($task['name']); ?></span>
-                            </label>
-                        </td>
+                                <td class="task__select">
+                                    <label class="checkbox task__checkbox">
+                                        <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1" <?= $task['done'] === true ? 'checked' : '' ?>>
+                                        <span class="checkbox__text"><?= htmlspecialchars($task['name']); ?></span>
+                                    </label>
+                                </td>
 
-                        <td class="task__file">
-                            <a class="download-link" href="#"></a>
-                        </td>
+                                <td class="task__file">
+                                    <a class="download-link" href="#"></a>
+                                </td>
 
-                        <td class="task__date"><?= htmlspecialchars($task['date']); ?></td>
-                    </tr>
-                    <?php endif; ?>
+                                <td class="task__date"><?= htmlspecialchars($task['date']); ?></td>
+                            </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </table>
             </main>
