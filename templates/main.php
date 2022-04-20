@@ -42,10 +42,10 @@
                     </label>
                 </div>
 
-                <table class="tasks" <?= $days_until_end <= 86400 === true ? 'task--important' : '' ?>>
+                <table class="tasks">
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['done'] === false || $show_complete_tasks === 1): ?> 
-                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?>">
+                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?> <?= $days_until_end <= 86400 === true ? 'task--important' : '' ?>">
                     
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
