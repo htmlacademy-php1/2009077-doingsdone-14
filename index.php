@@ -5,15 +5,6 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
-function is_soon_expire($start_date, $end_date){
-    $secs_in_hour = 3600;
-    $start_time = strtotime($start_date);
-    $end_time = strtotime($end_date);
-    $ts_diff = $end_time - $start_date;
-    $hours_until_end = floor ($ts_diff / $secs_in_hour);
-    return $hours_until_end;
-}
-
 $show_complete_tasks = rand(0, 1);
 
 $projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; 
@@ -66,11 +57,20 @@ function project_count($tasks, $project){
         return $count;
 }
 
+$end_date = strtotime($tasks['date']);
+$ts = time();
+$secs_in_hour = 3600;
+$ts_diff = $end_time - $ts;
+$hours_until_end = floor ($ts_diff / $secs_in_hour);
+
+
 $page_content = include_template('main.php', [
     'show_complete_tasks' => $show_complete_tasks,
     'projects' => $projects,
-    'tasks' => $tasks
+    'tasks' => $tasks,
+    'hours_until_end' => $hours_until_end
 ]);
+
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
 	'username' => 'Константин',
