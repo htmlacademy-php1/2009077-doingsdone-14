@@ -5,16 +5,13 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
-$start_date = $task['date'];
-$end_date = time ();
-$secs_in_day = 86400;
-
 function is_soon_expire($start_date, $end_date){
+    $secs_in_hour = 3600;
     $start_time = strtotime($start_date);
     $end_time = strtotime($end_date);
     $ts_diff = $end_time - $start_date;
-    $days_until_end = floor ($ts_diff / $secs_in_day);
-    return $days_until_end;
+    $hours_until_end = floor ($ts_diff / $secs_in_hour);
+    return $hours_until_end;
 }
 
 $show_complete_tasks = rand(0, 1);
