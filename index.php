@@ -57,18 +57,10 @@ function project_count($tasks, $project){
         return $count;
 }
 
-$end_date = strtotime($tasks['date']);
-$ts = time();
-$secs_in_hour = 3600;
-$ts_diff = $end_time - $ts;
-$hours_until_end = floor ($ts_diff / $secs_in_hour);
-
-
 $page_content = include_template('main.php', [
     'show_complete_tasks' => $show_complete_tasks,
     'projects' => $projects,
     'tasks' => $tasks,
-    'hours_until_end' => $hours_until_end
 ]);
 
 $layout_content = include_template('layout.php', [
