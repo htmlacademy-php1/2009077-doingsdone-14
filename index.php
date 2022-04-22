@@ -57,6 +57,19 @@ function project_count($tasks, $project){
         return $count;
 }
 
+function is_soon_expire($start_date, $end_date){
+    $secs_in_hour = 3600;
+    $start_time = strtotime($start_date);
+    $end_time = strtotime($end_date);
+    $ts_diff = $end_time - $start_time;
+    $hours_until_end = floor($ts_diff / $secs_in_hour);
+        if ($hours_until_end <= 24){
+            return true;
+            } else {
+                return false;   
+            }
+}
+
 $page_content = include_template('main.php', [
     'show_complete_tasks' => $show_complete_tasks,
     'projects' => $projects,
