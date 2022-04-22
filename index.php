@@ -11,13 +11,13 @@ $projects = ["Входящие", "Учеба", "Работа", "Домашние
 $tasks = [
     [
         'name' => 'Собеседование в IT компании',
-        'date' => '01.12.2019',
+        'date' => '25.04.2022',
         'project' => 'Работа',
         'done' => false 
     ],
     [
         'name' => 'Выполнить тестовое задание',
-        'date' => '25.12.2019',
+        'date' => '20.04.2022',
         'project' => 'Работа',
         'done' => false  
     ],
@@ -57,11 +57,24 @@ function project_count($tasks, $project){
         return $count;
 }
 
+function is_soon_expire($start_date, $end_date){
+    if ($end_date === null) {
+        return false;
+    }
+    $secs_in_hour = 3600;
+    $start_time = strtotime($start_date);
+    $end_time = strtotime($end_date);
+    $ts_diff = $end_time - $start_time;
+    $hours_until_end = floor($ts_diff / $secs_in_hour);
+    return $hours_until_end <= 24;
+}
+
 $page_content = include_template('main.php', [
     'show_complete_tasks' => $show_complete_tasks,
     'projects' => $projects,
-    'tasks' => $tasks
+    'tasks' => $tasks,
 ]);
+
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
 	'username' => 'Константин',
