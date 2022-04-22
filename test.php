@@ -17,7 +17,7 @@ function is_soon_expire($start_date, $end_date){
     return $hours_until_end;
 }
 
-$result = is_soon_expire($start_date; $end_date);
+$result = is_soon_expire($start_date, $end_date);
 
 if ($result === true) {
     echo 'Задача скоро просрочится'; 
