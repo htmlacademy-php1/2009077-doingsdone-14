@@ -45,7 +45,7 @@
                 <table class="tasks">
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['done'] === false || $show_complete_tasks === 1): ?> 
-                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?> <?= is_soon_expire(date('Y-m-d H:i:s'), $task['date']) === true ? 'task--important' : '' ?>">
+                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?> <?= is_soon_expire(date('Y-m-d H:i:s'), $task['date']) ? 'task--important' : '' ?>">
                     
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">

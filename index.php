@@ -58,6 +58,9 @@ function project_count($tasks, $project){
 }
 
 function is_soon_expire($start_date, $end_date){
+    if ($end_date === null) {
+        return false;
+    }
     $secs_in_hour = 3600;
     $start_time = strtotime($start_date);
     $end_time = strtotime($end_date);
