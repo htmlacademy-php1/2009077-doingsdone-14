@@ -1,7 +1,7 @@
 <?php
 
 $start_date = date('Y-m-d H:i:s');
-$end_date = '23.04.2022';
+$end_date = '24.04.2022';
 
 function is_soon_expire($start_date, $end_date){
     $secs_in_hour = 3600;
