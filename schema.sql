@@ -26,7 +26,7 @@ CREATE TABLE user (
     created_at TIMESTAMP,
     email VARCHAR(128) NOT NULL UNIQUE,
     name VARCHAR(128) NOT NULL,
-    password NOT NULL
+    password VARCHAR(20) NOT NULL
 );
 
 
