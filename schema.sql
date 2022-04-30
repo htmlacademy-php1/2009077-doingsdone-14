@@ -7,21 +7,24 @@ USE doingsdone;
 CREATE TABLE projects (
   	id INT AUTO_INCREMENT PRIMARY KEY,	
   	name VARCHAR(128) NOT NULL,
-    user_id INT
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE tasks (
   	id INT AUTO_INCREMENT PRIMARY KEY,
     created_at TIMESTAMP,
-    done TINYINT DEFAULT NULL,
+    done TINYINT DEFAULT 0,
     name VARCHAR(128) NOT NULL,
     file VARCHAR(500),
     end_date TIMESTAMP,
-    user_id INT,
-    project_id INT
+    user_id INT NOT NULL,
+    project_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
-CREATE TABLE user (
+CREATE TABLE users (
   	id INT AUTO_INCREMENT PRIMARY KEY,
     created_at TIMESTAMP,
     email VARCHAR(128) NOT NULL UNIQUE,
