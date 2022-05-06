@@ -1,6 +1,6 @@
 INSERT INTO users (created_at, email, name, password)
 VALUES
-    ('20.03.2018', 'em_konstantin@gmail.com', 'Константин', 'pass_konstantin'),
+    ('20.03.2018', 'em_konstantin@gmail.com', 'Константин', 'pass_konstantin') ON DUPLICATE KEY UPDATE email='em_konstantin@gmail.com',
     ('07.11.2016', 'em_anna@gmail.com', 'Анна', 'pass_anna');
 
 INSERT INTO projects (name, user_id) 
