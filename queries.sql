@@ -16,8 +16,8 @@ VALUES
     ('07.11.2019', 'Купить корм для кота', null, null, '1', '4'),
     ('07.11.2019', 'Заказать пиццу', null, null, '1', '4');
 
-SELECT user_id FROME projects WHERE user_id = '1';
-SELECT project_id FROME tasks WHERE project_id = '4';
+SELECT user_id FROME projects WHERE user_id = 1;
+SELECT project_id FROME tasks WHERE project_id = 4;
 
 
 
