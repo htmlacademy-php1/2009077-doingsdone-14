@@ -1,11 +1,15 @@
-INSERT INTO users SET created_at = '20.03.2018', email = 'em_konstantin@gmail.com', name = 'Константин', password = 'pass_konstantin';
-INSERT INTO users SET created_at = '07.11.2016', email = 'em_anna@gmail.com', name = 'Анна', password = 'pass_anna';
+INSERT INTO users (created_at, email, name, password)
+VALUES
+    ('20.03.2018', 'em_konstantin@gmail.com', 'Константин', 'pass_konstantin'),
+    ('07.11.2016', 'em_anna@gmail.com', 'Анна', 'pass_anna');
 
-INSERT INTO projects (name, user_id) VALUES ('Входящие', '2');
-INSERT INTO projects (name, user_id) VALUES ('Учеба', '2');
-INSERT INTO projects (name, user_id) VALUES ('Работа', '1');
-INSERT INTO projects (name, user_id) VALUES ('Домашние дела', '1');
-INSERT INTO projects (name, user_id) VALUES ('Авто', '1');
+INSERT INTO projects (name, user_id) 
+VALUES 
+    ('Входящие', '2'),
+    ('Учеба', '2'),
+    ('Работа', '1'),
+    ('Домашние дела', '1'),
+    ('Авто', '1');
 
 INSERT INTO tasks (created_at, name, file, end_date, user_id, project_id)
 VALUES 
@@ -16,8 +20,8 @@ VALUES
     ('07.11.2019', 'Купить корм для кота', null, null, '1', '4'),
     ('07.11.2019', 'Заказать пиццу', null, null, '1', '4');
 
-SELECT user_id FROME projects WHERE user_id = 1;
-SELECT project_id FROME tasks WHERE project_id = 4;
+SELECT user_id FROME projects WHERE user_id = '1';
+SELECT project_id FROME tasks WHERE project_id = '4';
 
 
 
