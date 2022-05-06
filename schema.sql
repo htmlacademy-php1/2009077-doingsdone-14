@@ -1,4 +1,4 @@
-CREATE DATABASE doingsdone 
+CREATE DATABASE [IF NOT EXISTS] doingsdone 
     DEFAULT CHARACTER SET UTF8
     DEFAULT COLLATE utf8_general_ci;
 
