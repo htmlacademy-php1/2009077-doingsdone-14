@@ -1,7 +1,7 @@
 INSERT INTO users (created_at, email, name, password)
 VALUES
-    ('20.03.2018', 'em_konstantin@gmail.com', 'Константин', 'pass_konstantin'),
-    ('07.11.2016', 'em_anna@gmail.com', 'Анна', 'pass_anna');
+    ('20.03.2018', 'konstantin@gmail.com', 'Константин', 'pass_konstantin'),
+    ('07.11.2016', 'anna@gmail.com', 'Анна', 'pass_anna');
 
 INSERT INTO projects (name, user_id) 
 VALUES 
