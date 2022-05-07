@@ -23,8 +23,6 @@ VALUES
 SELECT name FROM projects WHERE user_id = '1';
 SELECT name FROM tasks WHERE project_id = '4';
 
-UPDATE tasks SET name = 'Собеседование' WHERE tasks='1';
-
 
 
  
