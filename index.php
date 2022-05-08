@@ -8,29 +8,32 @@ require_once('helpers.php');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
 mysqli_set_charset($con, "utf8");
-    if ($con === false) {
-       print("Ошибка подключения: " . mysqli_connect_error());
-       } else {
-        $sql = "SELECT name FROM projects WHERE user_id = 1";
-        $result = mysqli_query($con, $sql);
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach ($rows as $row) {
-                print("Проекты:" . $row['name']);
-                }
-    }
+if ($con === false) {
+    print("Ошибка подключения: " . mysqli_connect_error());
+} else {
+    $sql = "SELECT name FROM projects WHERE user_id = 1";
+    $result = mysqli_query($con, $sql);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        foreach ($rows as $row) {
+            print("Проекты:" . $row['name']);
+        }
+    }    
+}
+
 
 $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
 mysqli_set_charset($con, "utf8");
-    if ($con === false) {
-       print("Ошибка подключения: " . mysqli_connect_error());
-       } else {
-        $sql = "SELECT name FROM tasks WHERE user_id = 1";
-        $result = mysqli_query($con, $sql);
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach ($rows as $row) {
-                print("Задачи:" . $row['name']);
-                }
+if ($con === false) {
+    print("Ошибка подключения: " . mysqli_connect_error());
+} else {
+    $sql = "SELECT name FROM tasks WHERE user_id = 1";
+    $result = mysqli_query($con, $sql);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        foreach ($rows as $row) {
+            print("Задачи:" . $row['name']);
+        }
     }
+}
 
 $show_complete_tasks = rand(0, 1);
 
