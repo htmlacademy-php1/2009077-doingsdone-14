@@ -13,10 +13,7 @@ if ($con === false) {
 } else {
     $sql = "SELECT name FROM projects WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
-    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        foreach ($rows as $row) {
-            print("Проекты:" . $row['name']);
-        }
+    $rows = mysqli_fetch_assoc($result);
     }    
 
 
