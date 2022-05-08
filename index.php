@@ -18,7 +18,6 @@ if ($con === false) {
             print("Проекты:" . $row['name']);
         }
     }    
-}
 
 
 $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
@@ -33,7 +32,7 @@ if ($con === false) {
             print("Задачи:" . $row['name']);
         }
     }
-}
+
 
 $show_complete_tasks = rand(0, 1);
 
