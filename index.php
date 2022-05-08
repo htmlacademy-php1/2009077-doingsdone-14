@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
-$con = mysqli_connect("localhost", "Константин", "pass_konstantin", "doingsdone");
+$con = mysqli_connect("localhost", "Константин", " ", "doingsdone");
 mysqli_set_charset($con, "utf8");
     if ($con === false) {
        print("Ошибка подключения: " . mysqli_connect_error());
@@ -18,7 +18,7 @@ mysqli_set_charset($con, "utf8");
                 }
     }
 
-    $con = mysqli_connect("localhost", "Константин", "pass_konstantin", "doingsdone");
+    $con = mysqli_connect("localhost", "Константин", " ", "doingsdone");
 mysqli_set_charset($con, "utf8");
     if ($con === false) {
        print("Ошибка подключения: " . mysqli_connect_error());
