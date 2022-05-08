@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 require_once('helpers.php');
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$con = mysqli_connect("127.0.0.1", "root", " ", "doingsdone");
+$con = mysqli_connect("127.0.0.1", "root", "doingsdone");
 mysqli_set_charset($con, "utf8");
     if ($con === false) {
        print("Ошибка подключения: " . mysqli_connect_error());
@@ -19,7 +19,7 @@ mysqli_set_charset($con, "utf8");
                 }
     }
 
-$con = mysqli_connect("127.0.0.1", "root", " ", "doingsdone");
+$con = mysqli_connect("127.0.0.1", "root", "doingsdone");
 mysqli_set_charset($con, "utf8");
     if ($con === false) {
        print("Ошибка подключения: " . mysqli_connect_error());
