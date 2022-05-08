@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 
 require_once('helpers.php');
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $con = mysqli_connect("localhost", "Константин", " ", "doingsdone");
 mysqli_set_charset($con, "utf8");
     if ($con === false) {
