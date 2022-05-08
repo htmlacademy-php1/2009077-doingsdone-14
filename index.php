@@ -14,7 +14,7 @@ if ($con === false) {
     $sql = "SELECT name FROM projects WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($result);
-    }    
+}    
 
 
 $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
@@ -24,12 +24,8 @@ if ($con === false) {
 } else {
     $sql = "SELECT name FROM tasks WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
-    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        foreach ($rows as $row) {
-            print("Задачи:" . $row['name']);
-        }
-    }
-
+    $rows = mysqli_fetch_assoc($result);
+}
 
 $show_complete_tasks = rand(0, 1);
 
