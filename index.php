@@ -11,7 +11,7 @@ mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } else {
-    $sql = "SELECT name FROM projects WHERE user_id = 1";
+    $sql = "SELECT name FROM projects WHERE user_id = 2";
     $result = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($result);
 }    
@@ -22,7 +22,7 @@ mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } else {
-    $sql = "SELECT name FROM tasks WHERE user_id = 1";
+    $sql = "SELECT name FROM tasks WHERE user_id = 2";
     $result = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($result);
 }
