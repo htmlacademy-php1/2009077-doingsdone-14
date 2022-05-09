@@ -6,23 +6,13 @@ ini_set('display_startup_errors', 1);
 require_once('helpers.php');
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
-mysqli_set_charset($con, "utf8");
-if ($con === false) {
-    print("Ошибка подключения: " . mysqli_connect_error());
-} else {
-    $sql = "SELECT name FROM projects WHERE user_id = 2";
-    $result = mysqli_query($con, $sql);
-    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}    
-
 
 $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
 mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } else {
-    $sql = "SELECT name FROM tasks WHERE user_id = 2";
+    $sql = "SELECT p.name, t.name  FROM projects p JOIN tasks t ON user_id = 2";
     $result = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($result);
 }
