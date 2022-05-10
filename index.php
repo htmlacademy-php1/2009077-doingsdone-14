@@ -32,32 +32,34 @@ else {
                 'projects' => $projects,
                 'tasks' => $tasks
             ]);
-            function project_count($tasks, $project){  
-                $count = 0;    
-                foreach($tasks as $task){    
-                    if ($project === $task['project']){ 
-                        $count = $count + 1;  
-                    }  
-                }
-                    return $count;
-            } 
-            function is_soon_expire($start_date, $end_date){
-                if ($end_date === null) {
-                    return false;
-                }
-                $secs_in_hour = 3600;
-                $start_time = strtotime($start_date);
-                $end_time = strtotime($end_date);
-                $ts_diff = $end_time - $start_time;
-                $hours_until_end = floor($ts_diff / $secs_in_hour);
-                return $hours_until_end <= 24;
-            }
         } 
         else {
             $error = mysqli_error($con);
             print("Ошибка MySQL: " . $error);
         }
 } 
+
+function project_count($tasks, $project){  
+    $count = 0;    
+    foreach($tasks as $task){    
+        if ($project === $task['project']){ 
+            $count = $count + 1;  
+        }  
+    }
+        return $count;
+}
+
+function is_soon_expire($start_date, $end_date){
+    if ($end_date === null) {
+        return false;
+    }
+    $secs_in_hour = 3600;
+    $start_time = strtotime($start_date);
+    $end_time = strtotime($end_date);
+    $ts_diff = $end_time - $start_time;
+    $hours_until_end = floor($ts_diff / $secs_in_hour);
+    return $hours_until_end <= 24;
+}
 
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
