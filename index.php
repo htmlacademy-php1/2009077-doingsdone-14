@@ -20,45 +20,7 @@ if ($con === false) {
 
 $show_complete_tasks = rand(0, 1);
 
-$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; 
-$tasks = [
-    [
-        'name' => 'Собеседование в IT компании',
-        'date' => '25.04.2022',
-        'project' => 'Работа',
-        'done' => false 
-    ],
-    [
-        'name' => 'Выполнить тестовое задание',
-        'date' => '20.04.2022',
-        'project' => 'Работа',
-        'done' => false  
-    ],
-    [
-        'name' => 'Сделать задание первого раздела',
-        'date' => '21.12.2019',
-        'project' => 'Учеба',
-        'done' => true      
-    ],
-    [
-        'name' => 'Встреча с другом',
-        'date' => '22.12.2019',
-        'project' => 'Входящие',
-        'done' => false  
-    ],
-    [
-        'name' => 'Купить корм для кота',
-        'date' => null,
-        'project' => 'Домашние дела',
-        'done' => false
-    ],
-    [
-        'name' => 'Заказать пиццу',
-        'date' => null,
-        'project' => 'Домашние дела',
-        'done' => false
-    ]
-];
+
 
 function project_count($tasks, $project){  
     $count = 0;    
