@@ -11,11 +11,31 @@ $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
 mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
-} else {
-    $sql = "SELECT name FROM projects WHERE user_id = 1";
+} 
+else {
+    $sql = "SELECT name FROM projects WHERE user_id = 1"; 
+    $result = mysqli_query($con, $sql);
+        if ($result) {
+            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC)
+        } 
+        else {
+            $error = mysqli_error($con);
+            print("Ошибка MySQL: " . $error)
+        }
     $sql = "SELECT name FROM tasks WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
-    $rows = mysqli_fetch_assoc($result);
+        if ($result) {
+            $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+            $page_content = include_template('main.php', [
+                'show_complete_tasks' => $show_complete_tasks,
+                'projects' => $projects,
+                'tasks' => $tasks
+            ])
+        } 
+        else {
+            $error = mysqli_error($con);
+            print("Ошибка MySQL: " . $error)
+        }
 } 
 
 $show_complete_tasks = rand(0, 1);
@@ -44,11 +64,7 @@ function is_soon_expire($start_date, $end_date){
     return $hours_until_end <= 24;
 }
 
-$page_content = include_template('main.php', [
-    'show_complete_tasks' => $show_complete_tasks,
-    'projects' => $projects,
-    'tasks' => $tasks,
-]);
+
 
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
