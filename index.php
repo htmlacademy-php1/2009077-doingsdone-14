@@ -30,7 +30,7 @@ else {
                 'show_complete_tasks' => $show_complete_tasks,
                 'projects' => $projects,
                 'tasks' => $tasks
-            ])
+            ]);
         } 
         else {
             $error = mysqli_error($con);
