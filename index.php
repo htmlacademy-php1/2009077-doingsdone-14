@@ -16,11 +16,11 @@ else {
     $sql = "SELECT name FROM projects WHERE user_id = 1"; 
     $result = mysqli_query($con, $sql);
         if ($result) {
-            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC)
+            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
         } 
         else {
             $error = mysqli_error($con);
-            print("Ошибка MySQL: " . $error)
+            print("Ошибка MySQL: " . $error);
         }
     $sql = "SELECT name FROM tasks WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
@@ -34,7 +34,7 @@ else {
         } 
         else {
             $error = mysqli_error($con);
-            print("Ошибка MySQL: " . $error)
+            print("Ошибка MySQL: " . $error);
         }
 } 
 
