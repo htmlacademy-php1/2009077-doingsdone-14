@@ -12,10 +12,10 @@ mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } else {
-    $sql = "SELECT p.name, t.name  FROM projects p JOIN tasks t ON user_id = 2";
+    $sql = "SELECT p.name, t.name  FROM projects p, tasks t WHERE user_id = 2";
     $result = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($result);
-}
+} 
 
 $show_complete_tasks = rand(0, 1);
 
