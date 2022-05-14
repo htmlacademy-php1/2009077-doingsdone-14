@@ -37,7 +37,9 @@ else {
             $error = mysqli_error($con);
             print("Ошибка MySQL: " . $error);
         }
-} 
+}
+
+var_dump($projects) 
 
 function project_count($tasks, $project){  
     $count = 0;    
