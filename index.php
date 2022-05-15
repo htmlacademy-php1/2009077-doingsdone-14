@@ -17,6 +17,8 @@ else {
     $result = mysqli_query($con, $sql);
         if ($result) {
             $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+            var_dump($projects);
+            exit();
         } 
         else {
             $error = mysqli_error($con);
@@ -39,7 +41,6 @@ else {
         }
 }
 
-var_dump($projects) 
 
 function project_count($tasks, $project){  
     $count = 0;    
