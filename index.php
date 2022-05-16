@@ -17,8 +17,6 @@ else {
     $result = mysqli_query($con, $sql);
         if ($result) {
             $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-            var_dump($projects);
-            exit();
         } 
         else {
             $error = mysqli_error($con);
@@ -45,7 +43,7 @@ else {
 function project_count($tasks, $project){  
     $count = 0;    
     foreach($tasks as $task){    
-        if ($project === $task['project']){ 
+        if ($project['name'] === $task['project']){ 
             $count = $count + 1;  
         }  
     }
