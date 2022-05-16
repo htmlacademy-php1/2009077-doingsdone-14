@@ -40,7 +40,7 @@ else {
 }
 
 
-function project_count($tasks, $project){  
+function project_count($tasks, $project['name']){  
     $count = 0;    
     foreach($tasks as $task){    
         if ($project['name'] === $task['project']){ 
