@@ -45,6 +45,8 @@ function project_count($tasks, $project){
     foreach($tasks as $task){    
         if ($project['id'] === $task['project_id']){ 
             $count = $count + 1;  
+            var_dump($count)
+            exit()
         }  
     }
         return $count;
