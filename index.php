@@ -13,7 +13,7 @@ if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } 
 else {
-    $sql = "SELECT name FROM projects WHERE user_id = 1"; 
+    $sql = "SELECT id, name FROM projects WHERE user_id = 1"; 
     $result = mysqli_query($con, $sql);
         if ($result) {
             $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
@@ -22,12 +22,10 @@ else {
             $error = mysqli_error($con);
             print("Ошибка MySQL: " . $error);
         }
-    $sql = "SELECT name FROM tasks WHERE user_id = 1";
+    $sql = "SELECT name, project_id FROM tasks WHERE user_id = 1";
     $result = mysqli_query($con, $sql);
         if ($result) {
             $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-            var_dump($tasks);
-            exit();
             $show_complete_tasks = rand(0, 1);
             $page_content = include_template('main.php', [
                 'show_complete_tasks' => $show_complete_tasks,
@@ -45,7 +43,7 @@ else {
 function project_count($tasks, $project){  
     $count = 0;    
     foreach($tasks as $task){    
-        if ($project['name'] === $task['project']){ 
+        if ($project['id'] === $task['project_id']){ 
             $count = $count + 1;  
         }  
     }
