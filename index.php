@@ -26,6 +26,8 @@ else {
     $result = mysqli_query($con, $sql);
         if ($result) {
             $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+            var_dump($tasks);
+            exit();
             $show_complete_tasks = rand(0, 1);
             $page_content = include_template('main.php', [
                 'show_complete_tasks' => $show_complete_tasks,
