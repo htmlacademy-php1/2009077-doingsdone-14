@@ -22,6 +22,9 @@ else {
             $error = mysqli_error($con);
             print("Ошибка MySQL: " . $error);
         }
+
+$tab = $_GET['tab'] ?? 'projects';
+$tab  = filter_input(INPUT_GET, 'tab');
     
     $sql = 'SELECT id, name, done, end_date, created_at, project_id FROM tasks WHERE user_id = 1';
     $result = mysqli_query($con, $sql);
