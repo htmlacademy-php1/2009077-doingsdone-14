@@ -6,7 +6,7 @@
                     <ul class="main-navigation__list">
                         <?php foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#"><?= htmlspecialchars($project); ?></a>
+                            <a class="main-navigation__list-item-link" href="#"><?= htmlspecialchars($project['name']); ?></a>
                             <span class="main-navigation__list-item-count"><?=  project_count($tasks, $project); ?></span>
                         </li>
                         <?php endforeach; ?>
@@ -45,7 +45,7 @@
                 <table class="tasks">
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['done'] === false || $show_complete_tasks === 1): ?> 
-                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?> <?= is_soon_expire(date('Y-m-d H:i:s'), $task['date']) ? 'task--important' : '' ?>">
+                            <tr class="tasks__item task <?= $task['done'] === true ? 'task--completed' : '' ?> <?= is_soon_expire(date('d-m-Y H:i:s'), $task['end_date']) ? 'task--important' : '' ?>">
                     
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
@@ -58,7 +58,7 @@
                                     <a class="download-link" href="#"></a>
                                 </td>
 
-                                <td class="task__date"><?= htmlspecialchars($task['date']); ?></td>
+                                <td class="task__date"><?= htmlspecialchars($task['end_date']); ?></td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach; ?>
