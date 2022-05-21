@@ -12,28 +12,6 @@ mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } 
-else {
-    $sql = 'SELECT id, name FROM projects WHERE user_id = 1'; 
-    $result = mysqli_query($con, $sql);
-        if ($result) {
-            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-        } 
-} 
-    
-$sql = 'SELECT id, name, done, end_date, created_at, project_id FROM tasks WHERE user_id = 1';
-$result = mysqli_query($con, $sql);
-if ($result) {
-    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-    $show_complete_tasks = rand(0, 1);
-    $page_content = include_template('main.php', [
-        'show_complete_tasks' => $show_complete_tasks,
-        'projects' => $projects,
-        'tasks' => $tasks
-        ]); 
-}else {
-    $error = mysqli_error($con);
-    print("Ошибка MySQL: " . $error);
-}
 
 $project_id = filter_input(INPUT_GET, 'project_id');
 if ($project_id === null) {
