@@ -46,6 +46,7 @@ if ($project_id === null) {
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } 
 $page_content = include_template('main.php', [
+    $show_complete_tasks = rand(0, 1);
     'projects' => $projects,
     'tasks' => $tasks
 ]);
