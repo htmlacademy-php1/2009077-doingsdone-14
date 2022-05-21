@@ -30,8 +30,6 @@ if ($project_id === null) {
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);   
 } 
-var_dump($project_id);
-exit();
 
 $show_complete_tasks = rand(0, 1);
 $page_content = include_template('main.php', [
