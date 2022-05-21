@@ -44,9 +44,10 @@ if ($project_id === null) {
     $sql = 'SELECT id, name FROM tasks WHERE project_id =' . $project_id;
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+    $show_complete_tasks = rand(0, 1);
 } 
 $page_content = include_template('main.php', [
-    $show_complete_tasks = rand(0, 1);
+    'show_complete_tasks' => $show_complete_tasks,
     'projects' => $projects,
     'tasks' => $tasks
 ]);
