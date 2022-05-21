@@ -12,7 +12,14 @@ mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
 } 
-
+else {
+    $sql = 'SELECT id, name FROM projects WHERE user_id = 1'; 
+    $result = mysqli_query($con, $sql);
+        if ($result) {
+            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+        } 
+} 
+    
 $project_id = filter_input(INPUT_GET, 'project_id');
 if ($project_id === null) {
     $sql = 'SELECT * FROM tasks';
