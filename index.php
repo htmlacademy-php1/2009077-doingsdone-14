@@ -18,31 +18,42 @@ else {
         if ($result) {
             $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
         } 
-        else {
-            $error = mysqli_error($con);
-            print("Ошибка MySQL: " . $error);
-        }
-
-$tab = $_GET['tab'] ?? 'projects';
-$tab  = filter_input(INPUT_GET, 'tab');
+} 
+else {
+    $error = mysqli_error($con);
+    print("Ошибка MySQL: " . $error);
+}
     
-    $sql = 'SELECT id, name, done, end_date, created_at, project_id FROM tasks WHERE user_id = 1';
-    $result = mysqli_query($con, $sql);
-        if ($result) {
-            $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-            $show_complete_tasks = rand(0, 1);
-            $page_content = include_template('main.php', [
-                'show_complete_tasks' => $show_complete_tasks,
-                'projects' => $projects,
-                'tasks' => $tasks
-            ]);
-        } 
-        else {
-            $error = mysqli_error($con);
-            print("Ошибка MySQL: " . $error);
-        }
+$sql = 'SELECT id, name, done, end_date, created_at, project_id FROM tasks WHERE user_id = 1';
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+    $show_complete_tasks = rand(0, 1);
+    $page_content = include_template('main.php', [
+        'show_complete_tasks' => $show_complete_tasks,
+        'projects' => $projects,
+        'tasks' => $tasks
+        ]); 
+}else {
+    $error = mysqli_error($con);
+    print("Ошибка MySQL: " . $error);
 }
 
+$project_id = filter_input(INPUT_GET, 'project_id');
+if ($project_id === null) {
+    $sql = 'SELECT * FROM tasks';
+    $result = mysqli_query($con, $sql);
+    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+} else {
+    $sql = 'SELECT id, name FROM tasks WHERE project_id =' . $project_id;
+    $result = mysqli_query($con, $sql);
+    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+} 
+$page_content = include_template('main.php', [
+    'projects' => $projects,
+    'tasks' => $tasks
+]);
+print($page_content);
 
 function project_count($tasks, $project){  
     $count = 0;    
