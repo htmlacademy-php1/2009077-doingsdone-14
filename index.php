@@ -19,10 +19,6 @@ else {
             $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
         } 
 } 
-else {
-    $error = mysqli_error($con);
-    print("Ошибка MySQL: " . $error);
-}
     
 $sql = 'SELECT id, name, done, end_date, created_at, project_id FROM tasks WHERE user_id = 1';
 $result = mysqli_query($con, $sql);
