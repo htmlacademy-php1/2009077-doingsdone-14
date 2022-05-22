@@ -27,9 +27,9 @@ if ($project_id === null) {
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } else {
     $sql = 'SELECT id, name FROM tasks WHERE project_id =' . $project_id;
-    $result = mysqli_query($con, $sql);
     var_dump ($result);
     exit();
+    $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);   
 } 
 
