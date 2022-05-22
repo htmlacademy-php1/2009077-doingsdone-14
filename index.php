@@ -21,7 +21,7 @@ else {
 } 
     
 $project_id = filter_input(INPUT_GET, 'project_id');
-if ($project_id === null) {
+if (empty($project_id)) {
     $sql = 'SELECT * FROM tasks';
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
