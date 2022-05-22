@@ -41,7 +41,7 @@ $page_content = include_template('main.php', [
 function project_count($tasks, $project){  
     $count = 0;    
     foreach($tasks as $task){    
-        if ($project['name'] === $task['project_id']){ 
+        if ($project['id'] === $task['project_id']){ 
             $count = $count + 1;  
         }  
     }
