@@ -27,6 +27,8 @@ if (empty($project_id)) {
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } else {
     $sql = 'SELECT * FROM tasks, COUNT(id) AS project_count WHERE project_id =' . $project_id;
+    var_dump ($sql);
+    exit();
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);   
 } 
