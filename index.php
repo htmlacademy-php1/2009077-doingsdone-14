@@ -26,7 +26,7 @@ if (empty($project_id)) {
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } else {
-    $sql = 'SELECT projects.*, count(tasks.id) AS project_count FROM projects LEFT JOIN tasks ON tasks.project_id = projects.id GROUP BY projects.id';
+    $sql = 'SELECT projects.*, count(tasks.id) AS task_count FROM projects LEFT JOIN tasks ON tasks.project_id = projects.id GROUP BY projects.id';
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);   
 } 
