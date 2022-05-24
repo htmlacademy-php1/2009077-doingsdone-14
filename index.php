@@ -26,7 +26,7 @@ if (empty($project_id)) {
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } else {
-    $sql = 'SELECT * FROM tasks, COUNT(id) AS project_count WHERE project_id =' . $project_id;
+    $sql = 'SELECT projects.*, count(tasks.id) AS project_count FROM projects LEFT JOIN tasks ON tasks.project_id = projects.id GROUP BY projects.id';
     var_dump ($sql);
     exit();
     $result = mysqli_query($con, $sql);
@@ -40,15 +40,6 @@ $page_content = include_template('main.php', [
     'tasks' => $tasks
 ]);
 
-function project_count($tasks, $project){  
-    $count = 0;    
-    foreach($tasks as $task){    
-        if ($project['id'] === $task['project_id']){ 
-            $count = $count + 1;  
-        }  
-    }
-        return $count;
-}
 
 function is_soon_expire($end_date, $start_date){
     if ($end_date === null) {
