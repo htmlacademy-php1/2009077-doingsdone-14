@@ -11,14 +11,11 @@ $con = mysqli_connect("127.0.0.1", "root", '', "doingsdone");
 mysqli_set_charset($con, "utf8");
 if ($con === false) {
     print("Ошибка подключения: " . mysqli_connect_error());
-} 
-else {
-    $sql = 'SELECT id, name FROM projects WHERE user_id = 1'; 
+} else {
+    $sql = 'SELECT projects.*, count(tasks.id) AS task_count FROM projects LEFT JOIN tasks ON tasks.project_id = projects.id GROUP BY projects.id'; 
     $result = mysqli_query($con, $sql);
-        if ($result) {
-            $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-        } 
-} 
+    $projects = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+}  
     
 $project_id = filter_input(INPUT_GET, 'project_id');
 if (empty($project_id)) {
@@ -26,11 +23,11 @@ if (empty($project_id)) {
     $result = mysqli_query($con, $sql);
     $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 } else {
-    $sql = 'SELECT projects.*, count(tasks.id) AS task_count FROM projects LEFT JOIN tasks ON tasks.project_id = projects.id GROUP BY projects.id';
+    $sql = 'SELECT * FROM tasks WHERE project_id =' . $project_id;
     $result = mysqli_query($con, $sql);
-    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);   
-} 
-
+    $tasks = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+}
+    
 $show_complete_tasks = rand(0, 1);
 $page_content = include_template('main.php', [
     'show_complete_tasks' => $show_complete_tasks,
@@ -38,11 +35,10 @@ $page_content = include_template('main.php', [
     'tasks' => $tasks
 ]);
 
-
 function is_soon_expire($end_date, $start_date){
-    if ($end_date === null) {
-        return false;
-    }
+if ($end_date === null) {
+    return false;
+} else {
     $secs_in_hour = 3600;
     $start_time = strtotime($end_date);
     $end_time = strtotime($start_date);
