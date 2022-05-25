@@ -36,15 +36,16 @@ $page_content = include_template('main.php', [
 ]);
 
 function is_soon_expire($end_date, $start_date){
-if ($end_date === null) {
-    return false;
-} else {
-    $secs_in_hour = 3600;
-    $start_time = strtotime($end_date);
-    $end_time = strtotime($start_date);
-    $ts_diff = $end_time - $start_time;
-    $hours_until_end = floor($ts_diff / $secs_in_hour);
-    return $hours_until_end <= 24;
+    if ($end_date === null) {
+        return false;
+    } else {
+        $secs_in_hour = 3600;
+        $start_time = strtotime($end_date);
+        $end_time = strtotime($start_date);
+        $ts_diff = $end_time - $start_time;
+        $hours_until_end = floor($ts_diff / $secs_in_hour);
+        return $hours_until_end <= 24;
+    }
 }
 
 $layout_content = include_template('layout.php', [
