@@ -40,9 +40,9 @@ function is_soon_expire($end_date, $start_date){
         return false;
     } else {
         $secs_in_hour = 3600;
-        $start_time = strtotime($end_date);
-        $end_time = strtotime($start_date);
-        $ts_diff = $end_time - $start_time;
+        $end_time = strtotime($end_date);
+        $start_time = strtotime($start_date);
+        $ts_diff =  $start_time - $end_time;
         $hours_until_end = floor($ts_diff / $secs_in_hour);
         return $hours_until_end <= 24;
     }
