@@ -25,7 +25,7 @@ CREATE TABLE tasks (
     done TINYINT DEFAULT 0,
     name VARCHAR(128) NOT NULL,
     file VARCHAR(500),
-    end_date TIMESTAMP, DEFAULT 0 
+    end_date TIMESTAMP, null
     user_id INT NOT NULL,
     project_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),

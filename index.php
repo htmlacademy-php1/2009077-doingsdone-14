@@ -35,7 +35,7 @@ $page_content = include_template('main.php', [
     'tasks' => $tasks
 ]);
 
-function is_soon_expire($start_date, $end_date){
+function is_soon_expire($end_date, $start_date){
     if ($end_date === null) {
         return false;
     } else {
